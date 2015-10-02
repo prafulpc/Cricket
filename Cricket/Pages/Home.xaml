@@ -1,0 +1,59 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Cricket.Pages.Home" 
+             mc:Ignorable="d" Width="881.864"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" Height="771.986">
+
+    <Grid Style="{StaticResource ContentRoot}" Margin="16,28,10,0">
+        <Button x:Name="btnfixture"  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" Foreground="White" VerticalContentAlignment="Center"  Command="NavigationCommands.GoToPage" CommandParameter="/View/LocationReport.xaml" HorizontalAlignment="Left" Height="96" Margin="642,278,0,0" VerticalAlignment="Top" Width="189"  FontWeight="Bold" FontSize="13"  RenderTransformOrigin="0.072,-2.104" >
+            <Image Source="The_Dubai_International_Cricket_Stadium_One_of_World_s_Top_V.jpg" Height="101" Width="174"/>
+        </Button>
+        <Button  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" Foreground="White" Command="NavigationCommands.GoToPage" CommandParameter="/View/TeamReport.xaml" VerticalAlignment="Top"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,439,0,0"  Width="189"  FontWeight="Bold" FontSize="13" RenderTransformOrigin="0.072,-2.104" Height="96">
+            <Image Source="cartoon.jpg" Height="101" Width="174"/>
+        </Button>
+        <Button  Foreground="White"  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0"   VerticalContentAlignment="Center" Command="NavigationCommands.GoToPage" CommandParameter="/View/PointsTable.xaml"    HorizontalAlignment="Left" Height="96" Margin="22,278,0,0" VerticalAlignment="Top" Width="184"  FontWeight="Bold" FontSize="13"   RenderTransformOrigin="0.072,-2.104">
+            <Image Source="Untitled-2.jpg" Height="101" Width="174"/>
+        </Button>
+        <Button Foreground="White"  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0"   VerticalContentAlignment="Center"  Command="NavigationCommands.GoToPage" CommandParameter="/View/AddNew.xaml" HorizontalAlignment="Left" Height="96" Margin="13,25,0,0" VerticalAlignment="Top" Width="189"  FontWeight="Bold" FontSize="13" RenderTransformOrigin="0.072,-2.104" >
+            <Image Source="Netvibes.png"/>
+        </Button>
+        <Button x:Name="btndivision"  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Foreground="White"  Command="NavigationCommands.GoToPage" CommandParameter="/View/Divisions.xaml" HorizontalAlignment="Left"  Margin="285,25,0,0" FontWeight="Bold" FontSize="13"   VerticalAlignment="Top" Width="189" Height="96" >
+            <Image Source="0.jpg"/>
+        </Button>
+        <Button  Foreground="White" FontWeight="Bold" FontSize="13"  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="523,25,0,0" VerticalAlignment="Top" Width="184" Height="96"  Command="NavigationCommands.GoToPage" CommandParameter="/View/EditWindow.xaml">
+            <Image Source="UniversalEditButton3-22230410.jpg"/>
+        </Button>
+
+        <Button Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Command="NavigationCommands.GoToPage" CommandParameter="/View/BestPlayer.xaml" Margin="432,278,0,0" VerticalAlignment="Top" Width="189" Height="96">
+            <Image Source="cricket-batsman-preparing-to-bat-pic-getty-images-966488929.jpg"/>
+        </Button>
+
+        <Button  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" Command="NavigationCommands.GoToPage" CommandParameter="/View/OfficialReport.xaml" HorizontalAlignment="Left" Margin="227,278,0,0" Foreground="White" FontWeight="Bold" FontSize="13" VerticalAlignment="Top" Width="189" Height="96">
+            <Image Source="cricket umpire decision game 2013 new online free to play.JPG"/>
+        </Button>
+        <Label Content="       Reports" HorizontalAlignment="Left" FontSize="25" Margin="350,195,0,0" VerticalAlignment="Top" Height="43" Width="161"/>
+        <Label Content="ADD NEW" HorizontalAlignment="Left" Margin="69,150,0,0" VerticalAlignment="Top" FontSize="13" Height="27" Width="71"/>
+        <Label Content="Groups" FontSize="13" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="EDIT PLAYERS" FontSize="13" HorizontalAlignment="Left" Margin="577,153,0,0" VerticalAlignment="Top"/>
+        <Label Content="Points Table" FontSize="13" HorizontalAlignment="Left" Margin="81,395,0,0" VerticalAlignment="Top"/>
+        <Label Content="Official Report" FontSize="13" HorizontalAlignment="Left" Margin="277,398,0,0" VerticalAlignment="Top"/>
+        <Label Content="Player Statistics" FontSize="13" HorizontalAlignment="Left" Margin="478,395,0,0" VerticalAlignment="Top"/>
+        <Button  Padding="-4"  Background="Transparent"  BorderBrush="Transparent" BorderThickness="0" Name="btnfixtures" Command="NavigationCommands.GoToPage" CommandParameter="/View/formFixtures.xaml" HorizontalAlignment="Left" Margin="726,25,0,0" VerticalAlignment="Top" Width="94" Height="85">
+            <Image Source="SSN-App-for-iPad-Sky-Sports-1325773331987.jpeg" Height="104" Width="104"/>
+        </Button>
+        <Label Content ="Location Report"  FontSize="13" HorizontalAlignment="Left" Margin="701,395,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fixtures" FontSize="13" HorizontalAlignment="Left" Margin="754,153,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label Content="Team Report" FontSize="13" HorizontalAlignment="Left" Margin="77,552,0,0" VerticalAlignment="Top"/>
+        <Button  HorizontalAlignment="Left" Margin="466,499,0,0" VerticalAlignment="Top" Width="143">
+        <Button Name="test" Content="Button" Width="89" Click="test_Click"/>
+        </Button>
+        <ComboBox Name="cbxtest"  HorizontalAlignment="Left" Margin="478,439,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cbxtest_DropDownClosed" >
+            
+        </ComboBox>
+
+
+    </Grid>
+</UserControl>

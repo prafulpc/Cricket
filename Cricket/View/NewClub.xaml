@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="Cricket.View.NewClub"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="1356.791" Height="993.407">
+    <Grid Height="649.907" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="287*"/>
+            <ColumnDefinition Width="1060*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="205*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Header=" Club Info" HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top" Height="394" Width="342" Grid.ColumnSpan="2">
+            <Grid Margin="0,0,0,9" HorizontalAlignment="Left" Width="330">
+                <Label Content="Club Name" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-13.119,-5.811"/>
+                <Label Content="Zone" HorizontalAlignment="Left" Margin="42,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="-13.119,-5.811"/>
+                <Label Content="KSCA IM Number" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="-13.119,-5.811"/>
+                <TextBox x:Name="txtclubname" Text="" HorizontalAlignment="Left" Height="23" Margin="128,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="cbxzonename" HorizontalAlignment="Left" Margin="128,64,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxzonename_SelectionChanged" DropDownOpened="cbxzonename_DropDownOpened"  >
+
+                </ComboBox>
+                <TextBox x:Name="txtKSCAIM"  HorizontalAlignment="Left" Height="23" Margin="128,110,0,0" TextWrapping="Wrap" Text="123" VerticalAlignment="Top" Width="120"/>
+                <RadioButton x:Name="radioim" Content="IM" HorizontalAlignment="Left" Margin="77,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.332,-0.448"/>
+                <RadioButton x:Name="radioia" Content="IA" HorizontalAlignment="Left" Margin="194,173,0,0" VerticalAlignment="Top"/>
+                <Label Content="Postal Address" HorizontalAlignment="Left" Margin="25,212,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtpostaladdr" HorizontalAlignment="Left" Height="65" Margin="128,212,0,0" TextWrapping="Wrap" Text="address" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Email ID" HorizontalAlignment="Left" Margin="42,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.898,-0.868"/>
+                <TextBox x:Name="txtemailid" HorizontalAlignment="Left" Height="23" Margin="128,311,0,0" TextWrapping="Wrap" Text="email" VerticalAlignment="Top" Width="120"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header=" Members Info" HorizontalAlignment="Left" Margin="94,273,0,0" VerticalAlignment="Top" Height="174" Width="755" Grid.Column="1"/>
+        <Grid Margin="94,286,219,207" Grid.Column="1">
+            <Label Content="President Name:" HorizontalAlignment="Left" Margin="51,30,0,0" VerticalAlignment="Top"/>
+            <Label Content="Vice-President Name:" HorizontalAlignment="Left" Margin="24,66,0,0" VerticalAlignment="Top"/>
+            <Label Content="Secreatary Name:" HorizontalAlignment="Left" Margin="45,107,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtpresidentname" HorizontalAlignment="Left" Height="23" Margin="167,26,-36,0" TextWrapping="Wrap" Text="pname" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtvpresidentname" HorizontalAlignment="Left" Height="23" Margin="167,63,-36,0" TextWrapping="Wrap" Text="vpname" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtsecretaryname" HorizontalAlignment="Left" Height="23" Margin="167,100,-36,0" TextWrapping="Wrap" Text="sname" VerticalAlignment="Top" Width="120"/>
+            <Label Content="President Contact No:" HorizontalAlignment="Left" Margin="344,30,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtpresidentphno"  HorizontalAlignment="Left" Height="23" Margin="504,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Vice-President Contact No:" HorizontalAlignment="Left" Margin="344,66,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtvicepresidentphno" HorizontalAlignment="Left" Height="23" Margin="504,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Secretary Contact No:" HorizontalAlignment="Left" Margin="344,107,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtsecretaryphno" HorizontalAlignment="Left" Height="23" Margin="504,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        </Grid>
+        <GroupBox Header="Teams" HorizontalAlignment="Left" Margin="18,416,0,0" VerticalAlignment="Top" Height="154" Width="333" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.25"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.746"/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <Grid Margin="0,0,0,2">
+                <CheckBox Content="Under 14-Team" HorizontalAlignment="Left" Margin="30,14,0,0" VerticalAlignment="Top"/>
+                <CheckBox Content="Under 16-Team" HorizontalAlignment="Left" Margin="30,42,0,0" VerticalAlignment="Top"/>
+                <CheckBox Content="Under 19-Team" HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top"/>
+                <CheckBox Content="Womens Team" HorizontalAlignment="Left" Margin="30,98,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.535,1.55"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Bank Info " HorizontalAlignment="Left" Margin="101,44,0,0" VerticalAlignment="Top" Height="156" Width="634" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="300*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Account Number:" HorizontalAlignment="Left" Margin="8,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label Content="Account Name:" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label Content="Account Type:" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <TextBox x:Name="txtaccountno" HorizontalAlignment="Left" Height="22" Margin="148,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                <TextBox x:Name="txtaccountname" HorizontalAlignment="Left" Height="22" Margin="148,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                <TextBox x:Name="txtaccounttype" HorizontalAlignment="Left" Height="24" Margin="150,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                <Label Content="Bank Name:" HorizontalAlignment="Left" Margin="341,19,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Label Content="Bank Branch:" HorizontalAlignment="Left" Margin="337,50,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Label Content="IFSC Code:" HorizontalAlignment="Left" Margin="348,92,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <TextBox x:Name="txtbankname" HorizontalAlignment="Left" Height="22" Margin="459,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                <TextBox x:Name="txtbankbranch" HorizontalAlignment="Left" Height="24" Margin="460,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                <TextBox x:Name="txtifsc" HorizontalAlignment="Left" Height="24" Margin="460,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Club Logo (MAX 300 KB)" HorizontalAlignment="Left" Margin="798,12,0,0" VerticalAlignment="Top" Height="190" Width="196" Grid.Column="1">
+            <Grid Margin="7,9,-6,4">
+                <Image x:Name="img" HorizontalAlignment="Left" Height="108" Margin="25,8,0,0" VerticalAlignment="Top" Width="113"/>
+                <Button x:Name="btnupload" Content="Upload" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="86" Click="btnupload_Click"/>
+                <TextBox x:Name="txt_browse" HorizontalAlignment="Left" Height="26" Margin="101,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnsave" Content="Save" HorizontalAlignment="Left" Margin="897,273,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="26" Click="btnsave_Click"/>
+        <Button x:Name="btncancel" Content="Cancel" Command="NavigationCommands.GoToPage" CommandParameter="/View/MatchInfo.xaml" HorizontalAlignment="Left" Margin="898,344,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="26" />
+
+        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="583,267,0,0" VerticalAlignment="Top" Grid.Column="1" Height="0" Width="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Button x:Name="btnclear" Content="Clear" Grid.Column="1" HorizontalAlignment="Left" Margin="897,414,0,0" VerticalAlignment="Top" Width="75" Click="btnclear_Click"/>
+
+
+    </Grid>
+</UserControl>

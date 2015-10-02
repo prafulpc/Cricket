@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Cricket.View.NewPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="984.95" Height="689.1" Loaded="UserControl_Loaded">
+    <Grid>
+        <Label Content="First Name:   *" TabIndex="1" HorizontalAlignment="Left" Margin="27,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtfname" TabIndex="1" HorizontalAlignment="Left" Height="23" Margin="120,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="txtlname" TabIndex="2" HorizontalAlignment="Left" Height="23" Margin="120,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <Label Content="Mobile No:   *" HorizontalAlignment="Left" Margin="28,131,0,0" VerticalAlignment="Top" Height="19"/>
+        <Label Content="Email Id:" HorizontalAlignment="Left" Margin="40,208,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtmobno" TabIndex="4" HorizontalAlignment="Left" MaxLength="10" Height="23" Margin="120,127,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="txtemailid" TabIndex="6"  HorizontalAlignment="Left" Height="23" Margin="120,201,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <ComboBox x:Name="cbxzone" TabIndex="10"  HorizontalAlignment="Left" Margin="464,183,0,0" VerticalAlignment="Top" Width="160" DropDownOpened="cbxzone_DropDownOpened"/>
+        <Label Content="Zone:   *" HorizontalAlignment="Left" Margin="401,183,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtnmale" TabIndex="7" IsChecked="False" Content="Male" HorizontalAlignment="Left" Margin="114,248,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtnfemale" TabIndex="8" IsChecked="False" Content="Female" HorizontalAlignment="Left" Margin="189,248,0,0" VerticalAlignment="Top"/>
+        <Label Content="Gender:" HorizontalAlignment="Left" Margin="40,249,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dateselect" TabIndex="5" HorizontalAlignment="Left" Margin="120,164,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Date Of Birth:   *" HorizontalAlignment="Left" Margin="19,169,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtaddress" TabIndex="9" HorizontalAlignment="Left" Height="94" Margin="120,290,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <Label Content="Address:   *" HorizontalAlignment="Left" Margin="46,326,0,0" VerticalAlignment="Top"/>
+        <Label Content="KSCA UID:" HorizontalAlignment="Left" Margin="388,44,0,0" VerticalAlignment="Top" Height="19"/>
+        <TextBox x:Name="txtkscauid" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="478,37,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <CheckBox x:Name="cbkeeper" TabIndex="17"  IsChecked="False" Content="Wicket Keeper" HorizontalAlignment="Left" Margin="611,429,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxTeam" TabIndex="11"  HorizontalAlignment="Left" Margin="464,221,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="cbxTeam_SelectionChanged" DropDownOpened="cbxTeam_DropDownOpened"/>
+        <Label HorizontalAlignment="Left" Margin="403,222,0,0" VerticalAlignment="Top" Height="21">
+            <Label Content="Team:     *"/>
+        </Label>
+
+        <GroupBox Header="Batting" HorizontalAlignment="Left" Margin="46,416,0,0" VerticalAlignment="Top" Height="103" Width="239">
+
+            <Grid>
+                <RadioButton x:Name="rbtnrightbat" TabIndex="12"  Content="Right Handed" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rbtnleftbat" TabIndex="13" Content="Left Handed" HorizontalAlignment="Left" Margin="24,42,0,0" VerticalAlignment="Top"/>
+
+
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Bowling" HorizontalAlignment="Left" Margin="316,416,0,0" VerticalAlignment="Top" Height="103" Width="268">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="223*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rbtnrightbal" TabIndex="14" Content="Right Arm" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <RadioButton x:Name="rbtnleftbal" TabIndex="15" Content="Left Arm" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="cbxbalstyle" TabIndex="16"  HorizontalAlignment="Left" Margin="75,37,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1">
+                    <ComboBoxItem Content="Fast"/>
+                    <ComboBoxItem Content="Medium Pace"/>
+                    <ComboBoxItem Content="Slow"/>
+                    <ComboBoxItem Content="Off-Spin"/>
+                    <ComboBoxItem Content="Leg-Spin"/>
+                    <ComboBoxItem Content="Off-Break"/>
+                    <ComboBoxItem Content="Leg-Break"/>
+                </ComboBox>
+
+
+                <Label Content="Bowling Style" HorizontalAlignment="Left" Margin="102,11,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+            </Grid>
+        </GroupBox>
+        <Label Content="Picture (Max 300KB) " HorizontalAlignment="Left" Margin="715,30,0,0" VerticalAlignment="Top" Width="127"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="120" Margin="715,62,0,0" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="btnupload" Content="Upload Image" HorizontalAlignment="Left" Margin="670,187,0,0" VerticalAlignment="Top" Width="127" Height="34" Click="btnupload_Click" />
+        <Button x:Name="btnsave" TabIndex="18" Content="Save" HorizontalAlignment="Left" Margin="201,542,0,0" VerticalAlignment="Top" Width="84" Height="28" Click="btnsave_Click"/>
+        <TextBox x:Name="txt_browse"  HorizontalAlignment="Left" Height="23" Margin="826,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="txtFather" TabIndex="3" HorizontalAlignment="Left" Height="23" Margin="121,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <Label Content="Father Name" HorizontalAlignment="Left" Margin="28,95,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header=" Primary  Club Details" HorizontalAlignment="Left" Margin="388,99,0,0" VerticalAlignment="Top" Height="193" Width="250">
+
+        </GroupBox>
+
+
+    </Grid>
+</UserControl>

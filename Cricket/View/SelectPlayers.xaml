@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Cricket.View.SelectPlayers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI "
+             mc:Ignorable="d" Width="1442.484" Height="838.358" Loaded="UserControl_Loaded">
+
+    <Grid Margin="80,0,0,0"  >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="361*"/>
+            <RowDefinition Height="477*"/>
+        </Grid.RowDefinitions>
+        <Frame NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="127,275,233,302" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtTeam1"  Foreground="White"  HorizontalAlignment="Left" Margin="71,62,0,0" VerticalAlignment="Top" Height="26" Width="232" IsReadOnly="True"/>
+        <ListBox x:Name="lbxTeam1"  Foreground="White" HorizontalAlignment="Left" Height="215" Margin="29,105,0,0" VerticalAlignment="Top" Width="183" ItemsSource="{Binding}"  BorderThickness="1" >
+
+        </ListBox>
+        <TextBox x:Name="txtTeam2"  Foreground="White" HorizontalAlignment="Left" Height="23" Margin="71,351,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="232" IsReadOnly="True" Grid.RowSpan="2"/>
+        <Button x:Name="btnLoadTeam1"  Foreground="White" Content="LoadPlayers" HorizontalAlignment="Left" Margin="235,116,0,0" VerticalAlignment="Top" Width="97" Height="26" Click="btnLoadTeam1_Click"/>
+        <Button x:Name="btnTransferedTeamA"  Foreground="White" Content="Transfer" HorizontalAlignment="Left" Margin="235,189,0,0" VerticalAlignment="Top" Width="97" Height="38" Click="btnTransferedTeamA_Click"/>
+        <Button x:Name="btnReverseTeamA"  Foreground="White" Content="Reverse" HorizontalAlignment="Left" Margin="235,242,0,0" VerticalAlignment="Top" Width="97" Height="33" Click="btnReverseTeamA_Click"/>
+        <ListBox x:Name="lbxTeam2"  Foreground="White" HorizontalAlignment="Left" Height="217" Margin="29,23,0,0" VerticalAlignment="Top" Width="183"  BorderThickness="1" Grid.Row="1"/>
+
+        <Button x:Name="btnLoadTeam2"  Foreground="White" Content="LoadPlayers" HorizontalAlignment="Left" Margin="235,49,0,0" VerticalAlignment="Top" Width="97" Height="26" Click="btnLoadTeam2_Click" Grid.Row="1"/>
+        <ListBox x:Name="lbltransferedTeamA"  Foreground="White" HorizontalAlignment="Left" Height="215" Margin="346,105,0,0" VerticalAlignment="Top" Width="183" ItemsSource="{Binding}"  BorderThickness="1" />
+        <Button x:Name="btnTransferedTeamB"  Foreground="White" Content="Transfer" HorizontalAlignment="Left" Margin="235,110,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="btnTransferedTeamB_Click" Grid.Row="1"/>
+        <Button x:Name="btnReverseTeamB"  Foreground="White" Content="Reverse" HorizontalAlignment="Left" Margin="235,161,0,0" VerticalAlignment="Top" Width="97" Height="35" Click="btnReverseTeamB_Click" Grid.Row="1"/>
+        <ListBox x:Name="lbltransferedTeamB"  Foreground="White" HorizontalAlignment="Left" Height="211" Margin="346,23,0,0" VerticalAlignment="Top" Width="183" ItemsSource="{Binding}" BorderThickness="1" Grid.Row="1" />
+        <Button Name="btnloadplayers" Foreground="White" Content="ScoreCard" HorizontalAlignment="Left" Margin="684,232,0,0" VerticalAlignment="Top" Width="141" Click="btnloadplayers_Click" Height="36" Grid.Row="1"/>
+        <ComboBox Name="cbxtoss" TabIndex="5" Foreground="White" HorizontalAlignment="Left" Margin="551,199,0,0" VerticalAlignment="Top" Width="261" Height="22" SelectionChanged="cbxtoss_SelectionChanged" />
+        <Label Content="Toss Won"   Foreground="White" HorizontalAlignment="Left" Margin="673,169,0,0" VerticalAlignment="Top" Height="16" Width="72"/>
+        <Label Content="Elected To"  Foreground="White" HorizontalAlignment="Left" Margin="885,171,0,0" VerticalAlignment="Top" Height="16" Width="77"/>
+        <ComboBox Name="cbxelected" TabIndex="6" Foreground="White" HorizontalAlignment="Left" Margin="838,201,0,0" VerticalAlignment="Top" Width="133" Height="22" SelectionChanged="cbxelected_SelectionChanged"/>
+        <ComboBox x:Name="cbxteam1captain" TabIndex="1"  Foreground="White" HorizontalAlignment="Left" Margin="638,62,0,0" VerticalAlignment="Top" Width="156" DropDownOpened="cbxteam1captain_DropDownOpened" Height="22" RenderTransformOrigin="-0.045,0.886"/>
+        <ComboBox x:Name="cbxteam1keeper" TabIndex="2"  Foreground="White" HorizontalAlignment="Left" Margin="848,62,0,0" VerticalAlignment="Top" Width="154" DropDownOpened="cbxteam1keeper_DropDownOpened" Height="22"/>
+        <Label Content="Team-1 captain" Foreground="White" HorizontalAlignment="Left" Margin="673,39,0,0" VerticalAlignment="Top" Height="16" Width="97"/>
+        <Label Content="Team-1 Wicket Keeper" Foreground="White" HorizontalAlignment="Left" Margin="882,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.321,0.375" Height="16" Width="138" Grid.ColumnSpan="2"/>
+        <Label Content="Team-2 captain" Foreground="White" HorizontalAlignment="Left" Margin="673,102,0,0" VerticalAlignment="Top" Height="16" Width="97"/>
+        <Label Content="Team-2 Wicket Keeper" Foreground="White" HorizontalAlignment="Left" Margin="882,105,0,0" VerticalAlignment="Top" Height="16" Width="138" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cbxteam2captain" TabIndex="3"  Foreground="White" HorizontalAlignment="Left" Margin="638,129,0,0" VerticalAlignment="Top" Width="156" DropDownOpened="cbxteam2captain_DropDownOpened" Height="22"/>
+        <ComboBox x:Name="cbxteam2keeper" TabIndex="4" Foreground="White" HorizontalAlignment="Left" Margin="848,129,0,0" VerticalAlignment="Top" Width="154" DropDownOpened="cbxteam2keeper_DropDownOpened" Height="22"/>
+        <Label Content="Season" Foreground="White" HorizontalAlignment="Left" Margin="309,7,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Height="16" Width="49"/>
+        <Label Name="lblseason" Foreground="White" Content="sea" HorizontalAlignment="Left" Margin="363,7,0,0" VerticalAlignment="Top" Height="16" Width="48"/>
+        <Label Content="Zone" Foreground="White" HorizontalAlignment="Left" Margin="449,7,0,0" VerticalAlignment="Top" Height="16" Width="34"/>
+        <Label Name="lblzone" Foreground="White" Content="zon" HorizontalAlignment="Left" Margin="503,7,0,0" VerticalAlignment="Top" Height="16" Width="44"/>
+        <Label Content="Division" Foreground="White" HorizontalAlignment="Left" Margin="611,7,0,0" VerticalAlignment="Top" Height="16" Width="58"/>
+        <Label Name="lbldivision"  Foreground="White" Content="Div" HorizontalAlignment="Left" Margin="683,7,0,0" VerticalAlignment="Top" Height="16" Width="92"/>
+        <Label Content="|"  Foreground="White" HorizontalAlignment="Left" Margin="301,5,0,0" VerticalAlignment="Top" Height="16" Width="2"/>
+        <Label Content="|" Foreground="White" HorizontalAlignment="Left" Margin="416,6,0,0" VerticalAlignment="Top" Height="16" Width="4"/>
+        <Label Content="|" Foreground="White" HorizontalAlignment="Left" Margin="441,5,0,0" VerticalAlignment="Top" Height="16" Width="2"/>
+        <Label Content="|" Foreground="White" HorizontalAlignment="Left" Margin="551,5,0,0" VerticalAlignment="Top" Height="16" Width="4"/>
+        <Label Content="|" Foreground="White" HorizontalAlignment="Left" Margin="601,7,0,0" VerticalAlignment="Top" Height="16" Width="4"/>
+        <Label Content="|" Foreground="White" HorizontalAlignment="Left" Margin="779,7,0,0" VerticalAlignment="Top" Height="16" Width="4"/>
+        <Button x:Name="btnUp"  Foreground="White" Content="^" HorizontalAlignment="Left" Margin="544,119,0,0" VerticalAlignment="Top" Width="51" Click="btnUp_Click" Height="26"/>
+        <Button x:Name="btnDown" Foreground="White" Content="v" HorizontalAlignment="Left" Margin="544,157,0,0" VerticalAlignment="Top" Width="51" Click="btnDown_Click" Height="26"/>
+        <Button x:Name="btnUp2"  Foreground="White" Content="^" HorizontalAlignment="Left" Margin="544,49,0,401" Width="51" Click="btnUp2_Click" Grid.Row="1"/>
+        <Button x:Name="btnDown2" Foreground="White" Content="v" HorizontalAlignment="Left" Margin="544,88,0,0" VerticalAlignment="Top" Width="51" Click="btnDown2_Click" Height="26" Grid.Row="1"/>
+        <DatePicker x:Name="startDate" TabIndex="7" Foreground="White" HorizontalAlignment="Left" Margin="774,329,0,0" VerticalAlignment="Top" Width="195" Height="27"/>
+        <Label Content="StartDate"  Foreground="White" HorizontalAlignment="Left" Margin="694,334,0,0" VerticalAlignment="Top" Height="18" Width="57"/>
+        <DatePicker x:Name="EndDate" TabIndex="8" Foreground="White" HorizontalAlignment="Left" Margin="776,9,0,0" VerticalAlignment="Top" Width="195" Height="31" Grid.Row="1"/>
+        <Label Content="EndDate"  Foreground="White" HorizontalAlignment="Left" Margin="699,14,0,0" VerticalAlignment="Top" Height="16" Width="52" Grid.Row="1"/>
+        <Label Content="Venue" Foreground="White" HorizontalAlignment="Left" Margin="708,149,0,0" VerticalAlignment="Top" Height="22" Width="55" Grid.Row="1"/>
+        <Label Content="Umpire1" Foreground="White" HorizontalAlignment="Left" Margin="699,49,0,0" VerticalAlignment="Top" Height="16" Width="52" Grid.Row="1"/>
+        <Label Content="Umpire2" Foreground="White" HorizontalAlignment="Left" Margin="696,80,0,0" VerticalAlignment="Top" Height="14" Width="65" Grid.Row="1"/>
+        <Label Content="Scorer" Foreground="White"  HorizontalAlignment="Left" Margin="709,115,0,0" VerticalAlignment="Top" Height="17" Width="54" Grid.Row="1"/>
+        <ComboBox x:Name="cbxVenue" TabIndex="12" Foreground="White"  HorizontalAlignment="Left" Margin="776,149,0,0" VerticalAlignment="Top" Width="195" DropDownOpened="cbxVenue_DropDownOpened" Height="22" Grid.Row="1"/>
+        <ComboBox x:Name="cbxumpire1" TabIndex="9"  Foreground="White" HorizontalAlignment="Left" Margin="776,49,0,0" VerticalAlignment="Top" Width="195" DropDownOpened="cbxumpire1_DropDownOpened" Height="22" Grid.Row="1"/>
+        <ComboBox x:Name="cbxumpire2" TabIndex="10" Foreground="White" HorizontalAlignment="Left" Margin="776,80,0,0" VerticalAlignment="Top" Width="195" DropDownOpened="cbxumpire2_DropDownOpened" Height="22" Grid.Row="1"/>
+        <ComboBox x:Name="cbxscorer" TabIndex="11"  Foreground="White" HorizontalAlignment="Left" Margin="776,116,0,0" VerticalAlignment="Top" Width="195" DropDownOpened="cbxscorer_DropDownOpened" Height="22" Grid.Row="1"/>
+        <Label Content="MatchType"  Foreground="White" HorizontalAlignment="Left" Margin="684,188,0,0" VerticalAlignment="Top" Height="16" Width="79" Grid.Row="1"/>
+        <ComboBox x:Name="cbxmatchtype" TabIndex="13"  Foreground="White" HorizontalAlignment="Left" Margin="776,188,0,0" VerticalAlignment="Top" Width="195" Height="22" Grid.Row="1"/>
+        <Button Content="Back" Name="btnback" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top" Width="75" Click="btnback_Click_1" Height="26"/>
+        <CheckBox Content="Semi-Final/Finals"  Name="chksemifinalfinals1" HorizontalAlignment="Left" Margin="828,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2,-0.559" Height="17" Width="110" Checked="chksemifinalfinals1_Checked" Unchecked="chksemifinalfinals1_Unchecked"/>
+        <ComboBox Name="cbxteam1" Visibility="Hidden" HorizontalAlignment="Left" Margin="346,62,0,0" VerticalAlignment="Top" Width="323" Height="22" DropDownOpened="cbxteam1_DropDownOpened" DropDownClosed="cbxteam1_DropDownClosed"/>
+        <ComboBox  Name="cbxtteam2" Visibility="Hidden" HorizontalAlignment="Left" Margin="346,348,0,0" VerticalAlignment="Top" Width="323" Height="26" DropDownOpened="cbxtteam2_DropDownOpened" DropDownClosed="cbxtteam2_DropDownClosed" Grid.RowSpan="2"/>
+        <Label Content="Team 1" FontSize="12" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="Team 2" FontSize="12" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Button x:Name="BallByBallScoring" Foreground="White" Content="Start Scoring" HorizontalAlignment="Left" Margin="848,232,0,0" VerticalAlignment="Top" Width="141" Click="BallByBallScoring_Click" Height="36" Grid.Row="1"/>
+        <ComboBox Name="cbxstriker" HorizontalAlignment="Left" Margin="609,258,0,0" VerticalAlignment="Top" Width="156" DropDownOpened="cbxstriker_DropDownOpened"/>
+        <ComboBox Name="cbxnonstriker" HorizontalAlignment="Left" Margin="829,261,0,0" VerticalAlignment="Top" Width="154" DropDownOpened="cbxnonstriker_DropDownOpened"/>
+        <Label Content="Striker" Foreground="White" HorizontalAlignment="Left" Margin="673,235,0,0" VerticalAlignment="Top"/>
+        <Label Content="Non-Striker" Foreground="White" HorizontalAlignment="Left" Margin="876,235,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bowler" Foreground="White" HorizontalAlignment="Left" Margin="638,304,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="709,298,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened"/>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,22 @@
+﻿<Application x:Class="Cricket.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.xaml" />
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.Dark.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Rectangle x:Key="WindowBackgroundContent">
+                <Rectangle.Fill>
+                    <ImageBrush Opacity=".3" ImageSource="/Pages/PanoramaBackground.png" Stretch="UniformToFill"></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+    
+</Application>

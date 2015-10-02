@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Cricket.View.AddNew"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="702" Height="627.325">
+    <Grid>
+        <Button Command="NavigationCommands.GoToPage" CommandParameter="/View/NewPlayer.xaml" Content="NEW PLAYER" HorizontalAlignment="Left" Margin="61,48,0,0" VerticalAlignment="Top" Width="502" Height="50.96"/>
+        <Button Content="NEW OFFICIAL" HorizontalAlignment="Left" Margin="61,125,0,0" VerticalAlignment="Top" Width="502" Height="51" Command="NavigationCommands.GoToPage" CommandParameter="/View/AddOfficials.xaml"/>
+        <Button Content="NEW LOCATION" HorizontalAlignment="Left" Margin="61,206,0,0" VerticalAlignment="Top" Width="502" Height="52" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewLocation.xaml"/>
+        <Button Content="NEW SEASON" Visibility="Hidden" HorizontalAlignment="Left" Margin="61,292,0,0" VerticalAlignment="Top" Width="502" Height="52" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewSeasons.xaml"/>
+        <Button Content="NEW TEAM" Visibility="Hidden" HorizontalAlignment="Left" Margin="61,372,0,0" VerticalAlignment="Top" Width="502" Height="52" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewTeam.xaml"/>
+    </Grid>
+</UserControl>

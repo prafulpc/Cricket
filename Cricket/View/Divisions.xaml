@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Cricket.View.Divisions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Height="1209.277" Width="1233.691" Loaded="UserControl_Loaded_1">
+    <Grid>
+        <ComboBox Name="cbxseason"   HorizontalAlignment="Left" Margin="121,31,0,0" VerticalAlignment="Top" Width="150" Height="25" SelectionChanged="cbxseason_SelectionChanged" />
+        <Label Content="Season" HorizontalAlignment="Left" Margin="67,34,0,0" VerticalAlignment="Top" Height="25" Width="49" RenderTransformOrigin="-0.76,0.685"/>
+        <ListBox Name="lbxdiv1"  Foreground="White" HorizontalAlignment="Left" Height="278" Margin="13,293,0,0" VerticalAlignment="Top" Width="361" BorderThickness="1">
+
+        </ListBox>
+        <ListBox x:Name="lbxdiv2" HorizontalAlignment="Left"  Foreground="White" Height="278" Margin="425,293,0,0" VerticalAlignment="Top" Width="361" BorderThickness="1">
+
+        </ListBox>
+
+        <ListBox x:Name="lbxdiv3" HorizontalAlignment="Left"  Foreground="White" Height="278" Margin="837,293,0,0" VerticalAlignment="Top" Width="361" BorderThickness="1">
+
+        </ListBox>
+        <Label Content="Zone" HorizontalAlignment="Left" Margin="67,80,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxzone" HorizontalAlignment="Left" Margin="121,80,0,0" VerticalAlignment="Top" Width="150" Height="25" />
+        <Button  x:Name="btnfixtures" Content="Fixtures" Visibility="Hidden" HorizontalAlignment="Left" Margin="312,576,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="btnfixtures_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="526,580,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.5,0.5" Height="35" Click="btnSave_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.361"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <ListBox x:Name="lbxTeamLoad"  Foreground="White" HorizontalAlignment="Left" Height="140" Margin="425,81,0,0" VerticalAlignment="Top" Width="475" BorderThickness="1"/>
+        <Label Content="Teams" HorizontalAlignment="Left" Margin="616,60,0,0" VerticalAlignment="Top" Width="47" RenderTransformOrigin="0.502,0.925"/>
+        <Button x:Name="btnReverseTeams" Content="&lt;Reverse" HorizontalAlignment="Left" Margin="473,225,0,0" VerticalAlignment="Top" Width="114" Click="btnReverseTeams_Click" Height="25" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.211"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="btnTtransferTeams" Content="Transfer &gt;" HorizontalAlignment="Left" Margin="633,226,0,0" VerticalAlignment="Top" Width="114" Click="btnTtransferTeams_Click" Height="25"/>
+        <RadioButton Name="rbtndiv1" Content="Division 1" HorizontalAlignment="Left" Margin="156,261,0,0" VerticalAlignment="Top" Click="rbtndiv1_Click"/>
+        <RadioButton Name="rbtndiv2" Content="Division 2" HorizontalAlignment="Left" Margin="571,261,0,0" VerticalAlignment="Top" Click="rbtndiv2_Click"/>
+        <RadioButton Name="rbtndiv3" Content="Division 3" HorizontalAlignment="Left" Margin="985,261,0,0" VerticalAlignment="Top" Click="rbtndiv3_Click" RenderTransformOrigin="1.25,1.942"/>
+        <TextBox Name="txtsearch" HorizontalAlignment="Left" Height="26" Margin="477,26,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="399" RenderTransformOrigin="0.5,0.5" TextChanged="txtsearch_TextChanged">
+
+        </TextBox>
+        <Label Content="Search" FontSize="20" HorizontalAlignment="Left" Margin="389,25,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="Cricket.View.MainScoreCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="1365.672" Height="583.582"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Grid>
+        <DataGrid Name="dgvbat"  AutoGenerateColumns="False" IsReadOnly="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" VerticalAlignment="Top" Height="250" Width="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="SLNO" Binding="{Binding SLNO}" />
+                <DataGridTextColumn Header="Batsman" Binding="{Binding Batsman}" />
+                <DataGridTextColumn Header="Dismissal" Binding="{Binding Dismissal}" />
+                <DataGridTextColumn Header="Bowler" Binding="{Binding Bowler}" />
+                <DataGridTextColumn Header="Runs" Binding="{Binding Runs}" />
+                <DataGridTextColumn Header="Balls" Binding="{Binding Balls}" />
+                <DataGridTextColumn Header="Mins" Binding="{Binding Mins}" />
+                <DataGridTextColumn Header="Fours" Binding="{Binding Fours}"/>
+                <DataGridTextColumn Header="Sixes" Binding="{Binding Sixes}" />
+                <DataGridTextColumn Header="SR" Binding="{Binding SR}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DataGrid Name="dgvbowl" AutoGenerateColumns="False" IsReadOnly="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,270,0,0" VerticalAlignment="Top" Height="250" Width="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="SLNO" Binding="{Binding SLNO}" />
+                <DataGridTextColumn Header="Bowler" Binding="{Binding Bowler}" />
+                <DataGridTextColumn Header="Overs" Binding="{Binding Overs}" />
+                <DataGridTextColumn Header="Dots" Binding="{Binding Dots}" />
+                <DataGridTextColumn Header="Maidens" Binding="{Binding Maidens}" />
+                <DataGridTextColumn Header="Runs" Binding="{Binding Runs}" />
+                <DataGridTextColumn Header="Wickets" Binding="{Binding Wickets}" />
+                <DataGridTextColumn Header="Wides" Binding="{Binding Wides}"/>
+                <DataGridTextColumn Header="NoBalls" Binding="{Binding NoBalls}" />
+                <DataGridTextColumn Header="Econ" Binding="{Binding Econ}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <GroupBox Header="Current" HorizontalAlignment="Left" Margin="730,0,0,0" VerticalAlignment="Top" Height="65" Width="575">
+            <Grid>
+                <Label Content="Batsman:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <ComboBox Name="cbxbatsmen" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Bowler:" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.125"/>
+                <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Runs" HorizontalAlignment="Left" Margin="730,67,0,0" VerticalAlignment="Top" Height="113" Width="575">
+            <Grid Height="113" Width="575" Margin="0,-10,-12,-12">
+                <Label Content="Extras:" HorizontalAlignment="Left" Margin="12,14,0,0" VerticalAlignment="Top"/>
+                <ComboBox Name="cbxextras" HorizontalAlignment="Left" Margin="64,14,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem>No-Extra</ComboBoxItem>
+                    <ComboBoxItem>Wide</ComboBoxItem>
+                    <ComboBoxItem>No-Ball(Front Foot)</ComboBoxItem>
+                    <ComboBoxItem>No-Ball(Above Waist)</ComboBoxItem>
+                    <ComboBoxItem>Leg-Byes</ComboBoxItem>
+                    <ComboBoxItem>Byes</ComboBoxItem>
+
+                </ComboBox>
+                <Button Name="btnzero" Content="0" HorizontalAlignment="Left" Margin="223.333,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btnzero_Click"/>
+                <Button Name="btnone" Content="1" HorizontalAlignment="Left" Margin="272.024,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btnone_Click"/>
+                <Button Name="btntwo" Content="2" HorizontalAlignment="Left" Margin="321.382,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btntwo_Click"/>
+                <Button Name="btnthree" Content="3" HorizontalAlignment="Left" Margin="370.073,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btnthree_Click"/>
+                <Button Name="btnfour" Content="4" HorizontalAlignment="Left" Margin="417.74,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btnfour_Click"/>
+                <Button Name="btnsix" Content="6" HorizontalAlignment="Left" Margin="465.407,13.368,0,0" VerticalAlignment="Top" Width="42.667" Height="39.96" Click="btnsix_Click"/>
+
+
+
+                <CheckBox Name="chbxOverThrow" Content="OverThrow" HorizontalAlignment="Left" Margin="12,57.372,0,0" VerticalAlignment="Top"/>
+                <Button Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="321.382,58.057,0,0" VerticalAlignment="Top" Width="70.014" Height="39.96" Click="btnOK_Click"/>
+
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Event" HorizontalAlignment="Left" Margin="730,185,0,0" VerticalAlignment="Top" Height="113" Width="575"/>
+        <Grid>
+            <Button Content="Wicket" HorizontalAlignment="Left" Margin="768,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
+            <Button Content="Retired" HorizontalAlignment="Left" Margin="897.665,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
+            <Button Content="Pause" HorizontalAlignment="Left" Margin="1166.999,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
+            <Button Content="Reset Bowler" HorizontalAlignment="Left" Margin="897.665,250.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
+            <Button Content="Change Bowler" HorizontalAlignment="Left" Margin="1029.332,250.666,0,0" VerticalAlignment="Top" Width="125.667" Height="32.627"/>
+            <Button Content="End Innings" HorizontalAlignment="Left" Margin="1029.332,204.666,0,0" VerticalAlignment="Top" Width="125.667" Height="32.627"/>
+            <Label Content="Require" HorizontalAlignment="Left" Margin="744.666,325.333,0,0" VerticalAlignment="Top" Width="79.326" FontSize="18.667"/>
+            <Label Content="AAA" HorizontalAlignment="Left" Margin="828.992,322.665,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" FontSize="24"/>
+            <Label Content="Overs/Balls(D/L Method)" HorizontalAlignment="Left" Margin="1041.332,325.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" Width="250.18" FontSize="18.667"/>
+            <Label Content="AAA" HorizontalAlignment="Left" Margin="977.892,322.665,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" FontSize="24"/>
+            <Label Content="runs from" HorizontalAlignment="Left" Margin="881.658,325.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" Width="90.006" FontSize="18.667"/>
+            <ComboBox Name="cbxoverthrowruns" HorizontalAlignment="Left" Margin="843,128,0,0" VerticalAlignment="Top" Width="74">
+                <sys:Int32>1</sys:Int32>
+                <sys:Int32>2</sys:Int32>
+                <sys:Int32>3</sys:Int32>
+                <sys:Int32>4</sys:Int32>
+            </ComboBox>
+            <GroupBox Header="ScoreBoard" HorizontalAlignment="Left" Margin="730,372,0,0" VerticalAlignment="Top" Height="202" Width="576">
+                <Grid Margin="0,-10,10,1">
+                    <Label Name="lblbatsman1" Content="BAT1" HorizontalAlignment="Left" Margin="19,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman2" Content="BAT2" HorizontalAlignment="Left" Margin="19,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman1runs" Content="BAT1RUNS" HorizontalAlignment="Left" Margin="169,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman2runs" Content="BAT2RUNS" HorizontalAlignment="Left" Margin="169,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman1balls" Content="BAT1BALLS" HorizontalAlignment="Left" Margin="232,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman2balls" Content="BAT2BALLS" HorizontalAlignment="Left" Margin="232,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman1fours" Content="4" HorizontalAlignment="Left" Margin="317,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman2fours" Content="4" HorizontalAlignment="Left" Margin="317,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman1sixes" Content="6" HorizontalAlignment="Left" Margin="362,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbatsman2sixes" Content="6" HorizontalAlignment="Left" Margin="362,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lbltotalscore" Content="R" HorizontalAlignment="Left" Margin="422,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label  Content="FOR" HorizontalAlignment="Left" Margin="470,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblwickets" Content="X" HorizontalAlignment="Left" Margin="525,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.321,-0.375" FontWeight="Bold"/>
+                    <Label Name="lblExtras" Content="Extras:" HorizontalAlignment="Left" Margin="429,105,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblOvers" Content="Overs:" HorizontalAlignment="Left" Margin="429,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="lblbowler"  Content="BOWL" HorizontalAlignment="Left" Margin="19,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="O" HorizontalAlignment="Left" Margin="125,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="M" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="R" HorizontalAlignment="Left" Margin="175,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="W" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="E/R" HorizontalAlignment="Left" Margin="225,100,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblO" Content="O" HorizontalAlignment="Left" Margin="125,126,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblM" Content="M" HorizontalAlignment="Left" Margin="150,126,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblR" Content="R" HorizontalAlignment="Left" Margin="175,126,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblW" Content="W" HorizontalAlignment="Left" Margin="200,126,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblER" Content="E/R" HorizontalAlignment="Left" Margin="225,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.278,3.25"/>
+
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+    </Grid>
+</UserControl>

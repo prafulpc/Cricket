@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Cricket.View.MatchResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Height="869.813" Width="1001.142" Unloaded="UserControl_Unloaded">
+    <Grid>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" Height="497" Width="914">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblteam1" Content="Team1" HorizontalAlignment="Left" Margin="16,140,0,314" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblteam2" Content="Team2" HorizontalAlignment="Left" Margin="16,217,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label Content="Result:" HorizontalAlignment="Left" Margin="170,34,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <TextBox Name="txtresult" HorizontalAlignment="Left" Height="48" Margin="250,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="397" Grid.Column="1"/>
+                <Label Content="WON" HorizontalAlignment="Left" Margin="310,94,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Label Content="LOST" HorizontalAlignment="Left" Margin="399,94,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Label Content="Draw/NR/AB" HorizontalAlignment="Left" Margin="472,95,0,0" VerticalAlignment="Top" Loaded="Label_Loaded" Grid.Column="1"/>
+                <Label Content="Points" Grid.Column="1" HorizontalAlignment="Left" Margin="577,95,0,0" VerticalAlignment="Top"/>
+                <GroupBox Grid.Column="1" Header="" HorizontalAlignment="Left" Margin="286,114,0,0" VerticalAlignment="Top" Height="71" Width="361">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"/>
+                            <ColumnDefinition Width="279*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton x:Name="rbtnwon1" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Click="rbtnwon1_Click" RenderTransformOrigin="6.45,0.451" Height="17" Width="20"/>
+                        <RadioButton x:Name="rbtnlost1" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="17" Width="20" Checked="rbtnlost1_Checked"/>
+                        <RadioButton x:Name="rbtndraw1" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="17" Width="20" Checked="rbtndraw1_Checked"/>
+                        <TextBox x:Name="txtpoints1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="217,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="40"/>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Column="1" Header="" HorizontalAlignment="Left" Margin="286,189,0,0" VerticalAlignment="Top" Height="71" Width="361">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"/>
+                            <ColumnDefinition Width="279*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton x:Name="rbtnwon2" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,1.824" Height="17" Width="20" Checked="rbtnwon2_Checked"/>
+                        <RadioButton x:Name="rbtnlost2" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.696,0.57" Checked="rbtnlost2_Checked" Grid.Column="1" Height="17" Width="20"/>
+                        <RadioButton x:Name="rbtndraw2" IsChecked="False" Content="" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="17" Width="20" Checked="rbtndraw2_Checked"/>
+                        <TextBox x:Name="txtpoints2" HorizontalAlignment="Left" Height="23" Margin="217,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" Grid.Column="1"/>
+
+                    </Grid>
+                </GroupBox>
+                <TextBox Name="txtremarks" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="250,302,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="393"/>
+                <Label Content="Remarks" HorizontalAlignment="Left" Margin="170,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.012,0.417" Grid.Column="1"/>
+                <Button Name="btnok" Content="OK" Grid.Column="1" HorizontalAlignment="Left" Margin="414,402,0,0" VerticalAlignment="Top" Width="75" Click="btnok_Click"/>
+
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</UserControl>

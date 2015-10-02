@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Cricket.View.BestPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="1223.415" Height="769.025" Loaded="UserControl_Loaded">
+    <Grid>
+        <DataGrid x:Name="dgvBatting" IsReadOnly="True" CanUserSortColumns="False"  HorizontalAlignment="Left" Margin="35,103,0,0" VerticalAlignment="Top" Height="196" Width="1160" CanUserAddRows="False" Foreground="Transparent" Background="Transparent" ItemsSource="{Binding}" Padding="12"  BorderBrush="Black" BorderThickness="1" AutoGenerateColumns="False"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="SerialNo" Binding="{Binding SerialNo}" />
+                <DataGridTextColumn Header="PlayerName" Binding="{Binding PlayerName}" />
+                <DataGridTextColumn Header="KSCAUID" Binding="{Binding KSCAUID}" />
+                <DataGridTextColumn Header="TeamName" Binding="{Binding TeamName}" />
+                <DataGridTextColumn  Header="Matches" Binding="{Binding Matches}" />
+                <DataGridTextColumn  Header="Innings" Binding="{Binding Innings}" />
+                <!--<DataGridTextColumn  Header="Overs" Binding="{Binding Path=Overs}" />-->
+                <DataGridTextColumn  Header="NotOut" Binding="{Binding NotOut}" />
+                <DataGridTextColumn  Header="Runs" Binding="{Binding Runs}" />
+                <DataGridTextColumn  Header="HighestScore" Binding="{Binding HighestScore}" />
+                <DataGridTextColumn  Header="Strikerate" Binding="{Binding Strikerate}" />
+                <DataGridTextColumn  Header="100s" Binding="{Binding 100s}" />
+                <DataGridTextColumn  Header="50s" Binding="{Binding 50s}" />
+                <DataGridTextColumn  Header="4s" Binding="{Binding 4s}" />
+                <DataGridTextColumn  Header="6s" Binding="{Binding 6s}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <DataGrid x:Name="dgvBowling" CanUserSortColumns="False"  HorizontalAlignment="Left" Margin="35,364,0,0" VerticalAlignment="Top" Height="196" Width="1160" CanUserAddRows="False" Foreground="Transparent" Background="Transparent" ItemsSource="{Binding}" Padding="12"  BorderBrush="Black" BorderThickness="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="SerialNo" Binding="{Binding SerialNo}" />
+                <DataGridTextColumn Header="PlayerName" Binding="{Binding PlayerName}" />
+                <DataGridTextColumn Header="KSCAUID" Binding="{Binding KSCAUID}" />
+                <DataGridTextColumn Header="TeamName" Binding="{Binding TeamName}" />
+                <DataGridTextColumn  Header="Matches" Binding="{Binding Matches}" />
+                <DataGridTextColumn  Header="Innings" Binding="{Binding Innings}" />
+                <DataGridTextColumn  Header="Overs" Binding="{Binding Overs}" />
+                <DataGridTextColumn  Header="Maidens" Binding="{Binding Maidens}" />
+                <DataGridTextColumn  Header="Runs" Binding="{Binding Runs}" />
+                <DataGridTextColumn  Header="Wickets" Binding="{Binding Wickets}" />
+                <!--<DataGridTextColumn  Header="BestBowling" Binding="{Binding Path=BestBowling}" />-->
+                <DataGridTextColumn  Header="Economy" Binding="{Binding Economy}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <ComboBox x:Name="cbxseason" HorizontalAlignment="Left" Margin="203,15,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Season:" HorizontalAlignment="Left" Margin="148,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="Division:" HorizontalAlignment="Left" Margin="353,15,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxdivision" HorizontalAlignment="Left" Margin="408,15,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnOk" Content="Ok" HorizontalAlignment="Left" Margin="546,10,0,0" VerticalAlignment="Top" Width="86" Height="33" Click="btnOk_Click_1"/>
+        <Button x:Name="btnbatsmen" Content="Export Batsmen Details" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Width="166" Height="33" Click="btnbatsmen_Click"/>
+        <Button x:Name="btnBowler" Content="Export Bowler Details" HorizontalAlignment="Left" Margin="548,317,0,0" VerticalAlignment="Top" Width="157" Click="btnBowler_Click"/>
+        <TextBox  Visibility="Hidden" Name="txtbatsmensearch" HorizontalAlignment="Left" Height="23" Margin="41,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="484"  TextChanged="txtbatsmensearch_TextChanged_1"  />
+        <TextBox  Visibility="Hidden" Name="txtbowlersearch" HorizontalAlignment="Left" Height="23" Margin="41,320,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="484" RenderTransformOrigin="0.319,0.06" TextChanged="txtbowlersearch_TextChanged"/>
+        <Button Content="Back" Name="btnback" HorizontalAlignment="Left" Margin="35,11,0,0" VerticalAlignment="Top" Width="75" Click="btnback_Click"/>
+    </Grid>
+</UserControl>

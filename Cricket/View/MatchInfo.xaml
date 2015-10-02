@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Cricket.View.MatchData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="783" Height="567">
+    <Grid>
+        <Label Content="Season" HorizontalAlignment="Left" Margin="36,30,0,0" VerticalAlignment="Top" Height="31" Width="84" />
+        <Label Content="Division" HorizontalAlignment="Left" Margin="49,200,0,0" VerticalAlignment="Top" Height="26" Width="82"/>
+        <ComboBox x:Name="cbxzone" HorizontalAlignment="Left" Margin="155,127,0,0" VerticalAlignment="Top" Width="234" Height="36" DropDownOpened="cbxzone_DropDownOpened" >
+
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.136"/>
+                    <RotateTransform Angle="-0.303"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <ComboBox x:Name="cbxdivision" HorizontalAlignment="Left" Margin="158,190,0,0" VerticalAlignment="Top" Width="234" Height="35" DropDownOpened="cbxdivision_DropDownOpened">
+
+        </ComboBox>
+        <Button x:Name="btndivision" Content="New Division" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewDivision.xaml" HorizontalAlignment="Left" Margin="479,180,0,0"  VerticalAlignment="Top" Width="234" Height="42"/>
+        <ComboBox x:Name="cbxseason" HorizontalAlignment="Left" Margin="158,25,0,0" VerticalAlignment="Top" Width="234" Height="36" DropDownOpened="cbxseason_DropDownOpened">
+            
+        </ComboBox>
+        <Label Content="Club" HorizontalAlignment="Left" Margin="52,258,0,0" VerticalAlignment="Top" Height="26" Width="47"/>
+        <ComboBox x:Name="cbxclub" HorizontalAlignment="Left" Margin="158,248,0,0" VerticalAlignment="Top" Width="234" Height="36" DropDownOpened="cbxclub_DropDownOpened"/>
+
+        <Button x:Name="btnclub" Content="New Club" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewClub.xaml" HorizontalAlignment="Left" Margin="480,238,0,0"  VerticalAlignment="Top" Width="234" Height="42"/>
+
+        <Label Content="Team" HorizontalAlignment="Left" Margin="52,316,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
+        <Button x:Name="btnteam" Content="New Team" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewTeam.xaml" HorizontalAlignment="Left" Margin="479,296,0,0"   VerticalAlignment="Top" Width="234" Height="43" Click="btnteam_Click"/>
+        <ComboBox x:Name="cbxteam" HorizontalAlignment="Left" Margin="158,306,0,0" VerticalAlignment="Top" Width="234" Height="36" DropDownOpened="cbxteam_DropDownOpened" />
+        <Label Content="Location" HorizontalAlignment="Left" Margin="49,381,0,0" VerticalAlignment="Top" Height="45" Width="88"/>
+        <ComboBox x:Name="cbxlocation" HorizontalAlignment="Left" Margin="158,370,0,0" VerticalAlignment="Top" Width="234" Height="35" DropDownOpened="cbxlocation_DropDownOpened"/>
+        <Button x:Name="btnlocation" Content="New Location" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewLocation.xaml" HorizontalAlignment="Left" Margin="479,363,0,0" VerticalAlignment="Top" Width="234" Height="42"/>
+        <Button x:Name="btnnext" Content="Next" HorizontalAlignment="Left" Margin="493,448,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btncancel" Content="Cancel" Command="NavigationCommands.GoToPage" CommandParameter="/Pages/Home.xaml" HorizontalAlignment="Left" Margin="662,448,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="Zone" Content="Zone" HorizontalAlignment="Left" Margin="49,139,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnzone" Content="New Zone" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewZone.xaml" HorizontalAlignment="Left" Margin="479,114,0,0" VerticalAlignment="Top" Width="234" Height="42" />
+        <Button x:Name="btnSeasons"  Content="New Seasons" Command="NavigationCommands.GoToPage" CommandParameter="/View/NewSeasons.xaml" HorizontalAlignment="Left" Margin="479,25,0,0" VerticalAlignment="Top" Width="234" Height="36"/>
+
+    </Grid>
+</UserControl>

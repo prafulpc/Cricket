@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Cricket.View.LocationReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="1587.795" Height="740.753" Loaded="UserControl_Loaded">
+    <Grid>
+        <ComboBox x:Name="cbxseason" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Season:" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Locatio:" HorizontalAlignment="Left" Margin="362,13,0,0" VerticalAlignment="Top" Width="57"/>
+        <ComboBox x:Name="cbxlocation" HorizontalAlignment="Left" Margin="419,10,0,0" VerticalAlignment="Top" Width="198" Height="26" />
+        <Button x:Name="btnOk" Content="Ok" HorizontalAlignment="Left" Margin="691,10,0,0" VerticalAlignment="Top" Width="75" Click="btnOk_Click"/>
+        <DataGrid   x:Name="dgvTeamReport" CanUserSortColumns="False" HorizontalAlignment="Left" Margin="35,104,0,0" VerticalAlignment="Top" Height="437" Width="1221" CanUserAddRows="False" Foreground="Transparent" Background="Transparent" ItemsSource="{Binding}" Padding="12"   BorderBrush="Black" BorderThickness="1" AutoGenerateColumns="False" CanUserDeleteRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="SerialNo" Binding="{Binding Path=SerialNo}" />
+                <DataGridTextColumn Header="Start Date" Binding="{Binding Path=Start Date}" />
+                <DataGridTextColumn  Header="End Date" Binding="{Binding Path=End Date}" />
+                <DataGridTextColumn  Header="Division" Binding="{Binding Path=Division}" />
+                <DataGridTextColumn  Header="Group" Binding="{Binding Path=Group}" />
+                <DataGridTextColumn  Header="Match Type" Binding="{Binding Path=Match Type}" />
+                <DataGridTextColumn  Header="MatchID" Binding="{Binding Path=MatchID}" />
+                <DataGridTextColumn  Header="Team One" Binding="{Binding Path=Team One}" />
+                <DataGridTextColumn  Header="Team Two" Binding="{Binding Path=Team Two}" />
+                <DataGridTextColumn  Header="Umpire One" Binding="{Binding Path=Umpire One}" />
+                <DataGridTextColumn  Header="Umpire Two" Binding="{Binding Path=Umpire Two}" />
+                <DataGridTextColumn  Header="Scorer" Binding="{Binding Path=Scorer}" />
+                <DataGridTextColumn  Header="Result" Binding="{Binding Path=Result}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Name="lbllocationname" Content="Location Name" HorizontalAlignment="Left" Margin="79,69,0,0" VerticalAlignment="Top" Width="529" Height="21"/>
+        <Button Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="1035,572,0,0" VerticalAlignment="Top" Width="148" Height="53" Click="btnExport_Click"/>
+        <Button Content="Back" x:Name="btnback" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="75" Click="btnback_Click"/>
+    </Grid>
+</UserControl>

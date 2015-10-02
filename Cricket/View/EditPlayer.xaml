@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Cricket.View.EditPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Height="560.023" Width="1490.696">
+    <Grid Style="{StaticResource ContentRoot}">
+        <Label Content="Teams" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Width="48"/>
+        <ListBox  x:Name="lbxTeams" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="347" Margin="24,85,0,0" VerticalAlignment="Top" Width="289"/>
+        <ComboBox x:Name="cbxTeams" HorizontalAlignment="Left" Margin="77,22,0,0" VerticalAlignment="Top" Width="236" SelectionChanged="cbxTeams_SelectionChanged"/>
+        <Button x:Name="btnUpdate" Content="Ok" HorizontalAlignment="Left" Margin="89,447,0,0" VerticalAlignment="Top" Width="105" Height="31" Click="btnUpdate_Click"/>
+    </Grid>
+</UserControl>
