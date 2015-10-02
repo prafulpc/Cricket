@@ -156,12 +156,13 @@ namespace Cricket.View
 
             for (int i = 0; i < player.No_Of_Players; i++)
             {
-                foreach (var item in Batman.names)
+                foreach (var item1 in Batman.names)
                 {
-                    if (item != null)
+                    if (item1 != null)
                     {
-                        cbxbatsmen.Items.Add(item);
+                        cbxbatsmen.Items.Add(item1);
                         i++;
+
                     }
                 }
                 //cbxbatsmen.Items[i] = Batman.names[i];
