@@ -459,7 +459,7 @@ namespace Cricket.View
                 {
                     if (!DBNull.Value.Equals((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]) && ((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]).ToString() != "")
                     {
-                        if(cbxbatsmen.SelectedValue.ToString() == ((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]))
+                        if (cbxbatsmen.SelectedValue.ToString() == Convert.ToString((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]))
                         {
                             Runs1 = Runs1 + i;
                             Runnnn[m] = Runs1;
@@ -540,7 +540,7 @@ namespace Cricket.View
                 {
                     if (!DBNull.Value.Equals((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]) && ((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]).ToString() != "")
                     {
-                        if (cbxbatsmen.SelectedValue.ToString() == ((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]))
+                        if (cbxbatsmen.SelectedValue.ToString() == Convert.ToString((dgvbat.Items[m] as DataRowView).Row.ItemArray[1]))
                         {
                             Runs2 = Runs2 + i;
                             Runnnn[m] = Runs2;
@@ -631,7 +631,7 @@ namespace Cricket.View
                 {
                     if (!DBNull.Value.Equals((dgvbowl.Items[m] as DataRowView).Row.ItemArray[1]) && ((dgvbowl.Items[m] as DataRowView).Row.ItemArray[1]).ToString() != "")
                     {
-                        if (cbxbowler.SelectedValue.ToString() == ((dgvbowl.Items[m] as DataRowView).Row.ItemArray[1]))
+                        if (cbxbowler.SelectedValue.ToString() == Convert.ToString((dgvbowl.Items[m] as DataRowView).Row.ItemArray[1]))
                         {
                             double bbb = Convert.ToDouble(Convert.ToInt16(Math.Truncate(bowlerballs / 6)) + "." + (bowlerballs % 6));
                             bowlerover[m] = bbb;
