@@ -49,8 +49,10 @@ namespace Cricket.View
         public List<int> BWickets = new List<int>(15);
         public List<int> Widessss = new List<int>(15);
         public List<int> Noballssssss = new List<int>(15);
-        
-        
+
+        public List<int> bowlerovernumber = new List<int>(15);
+
+
 
         //batsman 1
         string batsman1;
@@ -69,13 +71,12 @@ namespace Cricket.View
         //bowler
         string bowler;
         double bowlerballs = 0;
-        int dots = 0;
-
-       // double BallNumber = 0;
-        int overs = 0;
-
         
         bool blnSwapBatsman;
+
+        //temporary bowler overs
+        double bbb;
+        double temp_overs;
 
 
         public MainScoreCard()
@@ -96,8 +97,7 @@ namespace Cricket.View
                 BWickets.Insert(s, 0);
                 Widessss.Insert(s, 0);
                 Noballssssss.Insert(s, 0);
-
-
+                bowlerovernumber.Insert(s, 0);
             }
 
             
@@ -145,15 +145,6 @@ namespace Cricket.View
             dgvbowl.DataContext = objmainscorecard.bowling(teamB);
 
 
-            //for (int i = 0; i < Batman1.count1; i++)
-            //{
-            //    foreach (var item in Batman1.names1)
-            //    {
-            //        testing.Items.Add(item);
-            //        i++;
-            //    }
-            //}
-
             for (int i = 0; i < player.No_Of_Players; i++)
             {
                 foreach (var item1 in Batman.names)
@@ -165,7 +156,6 @@ namespace Cricket.View
 
                     }
                 }
-                //cbxbatsmen.Items[i] = Batman.names[i];
             }
 
             for (int j = 0; j < Bowler.count; j++)
@@ -189,10 +179,6 @@ namespace Cricket.View
                     i++;
                 }
             }
-
-            //cbxbatsmen.Items.Add(player.striker);
-            //cbxbatsmen.Items.Add(player.nonstriker);
-            //cbxbowler.Items.Add(player.bowler);
 
             cbxbatsmen.SelectedIndex = 0;
             cbxbowler.SelectedIndex = 0;
@@ -320,7 +306,8 @@ namespace Cricket.View
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
-                if(chbxOverThrow.IsChecked==true)
+                temp_overs = temp_overs + 1;
+                if (chbxOverThrow.IsChecked==true)
                 {
                     TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString()); 
                     TotalScore = TotalScore + TotalRuns;
@@ -391,6 +378,7 @@ namespace Cricket.View
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
+                temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked == true)
                 {
                     TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
@@ -410,6 +398,7 @@ namespace Cricket.View
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
+                temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked == true)
                 {
                     TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
@@ -431,23 +420,8 @@ namespace Cricket.View
             batsman2 = cbxbatsmen.Items[1].ToString();
             bowler = cbxbowler.Items[0].ToString();
                
-           // if ((comboboxvalue.value[0] == "0" && comboboxvalue.value[1] == "0") || (comboboxvalue.value[0] == "1" && comboboxvalue.value[1] == "1"))
-            {
-                ObservableCollection<string> team1 = teamA;
-                ObservableCollection<string> team2 = teamB;
-                //teamA (batting)  teamB (bowling)
-                //dgvbat.DataContext = objmainscorecard.batting(teamA);
-                //dgvbowl.DataContext = objmainscorecard.bowling(teamB);
-            }
-
-            //teamA (bowling)  teamB (batting)
-            //else if ((comboboxvalue.value[0] == "0" && comboboxvalue.value[1] == "1") || (comboboxvalue.value[0] == "1" && comboboxvalue.value[1] == "0"))
-            //{
-            //    ObservableCollection<string> team1 = teamB;
-            //    ObservableCollection<string> team2 = teamA;
-            //    //dgvbat.DataContext = objmainscorecard.batting(teamB);
-            //    //dgvbowl.DataContext = objmainscorecard.bowling(teamA);
-            //}
+            ObservableCollection<string> team1 = teamA;
+            ObservableCollection<string> team2 = teamB;
 
             if(cbxbatsmen.SelectedIndex==0)
             {
@@ -643,8 +617,16 @@ namespace Cricket.View
                     {
                         if (cbxbowler.SelectedValue.ToString() == Convert.ToString((dgvbowl.Items[m] as DataRowView).Row.ItemArray[1]))
                         {
-                            double bbb = Convert.ToDouble(Convert.ToInt16(Math.Truncate(bowlerballs / 6)) + "." + (bowlerballs % 6));
-                            bowlerover[m] = bbb;
+                            if((bowlerballs % 6) == 0)
+                            {
+                                bowlerovernumber[m] = bowlerovernumber[m] + 1;
+                            }
+                            
+                            bbb = Convert.ToDouble(Convert.ToInt16(bowlerovernumber[m]) + "." + (bowlerballs % 6));
+                            bowlerover[m] =  bbb;
+                            double abc = bowlerover[m];
+
+                            //temp_overs = temp_overs + 1;
 
                             DataRow drbowler = dtbowler.NewRow();
                             drbowler.BeginEdit();
@@ -665,7 +647,7 @@ namespace Cricket.View
                             drbowler.BeginEdit();
                             drbowler["SLNO"] = count + 1;
                             drbowler["Bowler"] = teamB[count];
-                         //  drbowler["Overs"] = bowlerover[m];
+                            drbowler["Overs"] = bowlerover[m];
                             //if (Runnnn[count] != null)
                             //{
                             //    dr["Runs"] = Runnnn[m];
@@ -687,6 +669,7 @@ namespace Cricket.View
             {
                 MessageBox.Show("Select Next Bowler");
                 cbxbowler_DropDownOpened();
+                temp_overs = 0;
             }
             
         }
