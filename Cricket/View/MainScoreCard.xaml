@@ -42,7 +42,7 @@
                 <Label Content="Batsman:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <ComboBox Name="cbxbatsmen" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Bowler:" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.125"/>
-                <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened"/>
+                <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened" DropDownClosed="cbxbowler_DropDownClosed"/>
 
             </Grid>
         </GroupBox>

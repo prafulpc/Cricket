@@ -26,6 +26,7 @@ namespace Cricket.View
     public partial class MainScoreCard : UserControl
     {
         DataTable dtlItemDetails = new DataTable();
+        public List<string> players = new List<string>(15);
 
         ObservableCollection<string> teamA = new ObservableCollection<string>();    //Batting Team
         ObservableCollection<string> teamB = new ObservableCollection<string>();    //Bowling Team
@@ -137,7 +138,6 @@ namespace Cricket.View
                         teamB.Add(xyz.ToString());
                     }
                 }
-
             }
 
 
@@ -177,6 +177,16 @@ namespace Cricket.View
                         cbxbowler.Items.Add(item);
                         j++;
                     }
+                }
+            }
+
+            for (int i = 0; i < cbxbowler.Items.Count; i++)
+            {
+                foreach (var item in cbxbowler.Items)
+                {
+                    string xyz = Convert.ToString(item);
+                    players.Insert(i, xyz);
+                    i++;
                 }
             }
 
@@ -741,11 +751,23 @@ namespace Cricket.View
 
         }
 
+        private void cbxbowler_DropDownClosed(object sender, EventArgs e)
+        {
+            int a = cbxbowler.SelectedIndex;
+            string abc = cbxbowler.SelectedItem.ToString();
 
-
-
-
-
-        
+            players.Remove(abc);
+            players.Insert(0, abc);
+            cbxbowler.Items.Clear();
+            for (int i = 0; i < players.Count; i++)
+            {
+                foreach (var item in players)
+                {
+                    cbxbowler.Items.Add(item);
+                    i++;
+                }
+            }
+            cbxbowler.SelectedIndex = 0;
         }
+    }
 }
