@@ -308,10 +308,18 @@ namespace Cricket.View
                 bowlerballs = bowlerballs + 1;
                 temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked==true)
-                {
-                    TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString()); 
-                    TotalScore = TotalScore + TotalRuns;
-                    Runs = TotalRuns.ToString() + " runs.";
+                {   
+                    if(cbxoverthrowruns.SelectedIndex !=-1)
+                    {
+                        TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                        TotalScore = TotalScore + TotalRuns;
+                        Runs = TotalRuns.ToString() + " runs.";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select Runs for OverThrough");
+                    }
+
                 }
                 else
                 {
@@ -324,10 +332,18 @@ namespace Cricket.View
             {
                 if (chbxOverThrow.IsChecked == true)
                 {
-                    TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
-                    TotalScore = TotalScore + TotalRuns;
-                    Runs = TotalRuns.ToString() + " runs.";
-                    extra = extra + i + 1;
+                    if (cbxoverthrowruns.SelectedIndex != -1)
+                    {
+                        TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                        TotalScore = TotalScore + TotalRuns;
+                        Runs = TotalRuns.ToString() + " runs.";
+                        extra = extra + i + 1;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select Runs for OverThrough");
+                    }
                 }
                 else
                 {
@@ -633,7 +649,16 @@ namespace Cricket.View
                             drbowler["SLNO"] = count + 1;
                             drbowler["Bowler"] = teamB[count];
                             drbowler["Overs"] = bowlerover[m];
-                            //dr["Balls"] = Ballsssss[m];
+                            if(i == 0)
+                            {
+                                dotssss[m] += 1;
+                                drbowler["Dots"] = dotssss[m];
+                            }
+                            else
+                            {
+                                drbowler["Dots"] = dotssss[m];
+                            }
+
                             //dr["Fours"] = Foursssss[m];
                             //dr["Sixes"] = Sixesssss[m];
                             count++;
@@ -648,6 +673,7 @@ namespace Cricket.View
                             drbowler["SLNO"] = count + 1;
                             drbowler["Bowler"] = teamB[count];
                             drbowler["Overs"] = bowlerover[m];
+                            drbowler["Dots"] = dotssss[m];
                             //if (Runnnn[count] != null)
                             //{
                             //    dr["Runs"] = Runnnn[m];
