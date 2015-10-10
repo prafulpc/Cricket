@@ -108,8 +108,8 @@
                     <Label Name="lbltotalscore" Content="R" HorizontalAlignment="Left" Margin="422,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label  Content="FOR" HorizontalAlignment="Left" Margin="470,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Name="lblwickets" Content="X" HorizontalAlignment="Left" Margin="525,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.321,-0.375" FontWeight="Bold"/>
-                    <Label Name="lblExtras" Content="Extras:" HorizontalAlignment="Left" Margin="429,105,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Name="lblOvers" Content="Overs:" HorizontalAlignment="Left" Margin="429,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="Extras" Content="Extras:" HorizontalAlignment="Left" Margin="429,105,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Name="Overs" Content="Overs:" HorizontalAlignment="Left" Margin="429,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Name="lblbowler"  Content="BOWL" HorizontalAlignment="Left" Margin="19,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="O" HorizontalAlignment="Left" Margin="125,100,0,0" VerticalAlignment="Top"/>
                     <Label Content="M" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top"/>
@@ -121,6 +121,8 @@
                     <Label Name="lblR" Content="R" HorizontalAlignment="Left" Margin="175,126,0,0" VerticalAlignment="Top"/>
                     <Label Name="lblW" Content="W" HorizontalAlignment="Left" Margin="200,126,0,0" VerticalAlignment="Top"/>
                     <Label Name="lblER" Content="E/R" HorizontalAlignment="Left" Margin="225,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.278,3.25"/>
+                    <Label x:Name="lblExtras" Content="Label" HorizontalAlignment="Left" Margin="493,105,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lblOvers" Content="Label" HorizontalAlignment="Left" Margin="493,129,0,0" VerticalAlignment="Top"/>
 
                 </Grid>
             </GroupBox>

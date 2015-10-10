@@ -76,7 +76,8 @@ namespace Cricket.View
 
         //temporary bowler overs
         double bbb;
-        double temp_overs;
+       
+
 
 
         public MainScoreCard()
@@ -300,18 +301,20 @@ namespace Cricket.View
         public void CalculateTotalRuns (int i)
         {
             int TotalRuns = 0;
+            int BowlerRuns = 0;
 
             //No-Extra
-            if(cbxextras.SelectedIndex==0)
+            if (cbxextras.SelectedIndex==0)
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
-                temp_overs = temp_overs + 1;
+                //temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked==true)
                 {   
                     if(cbxoverthrowruns.SelectedIndex !=-1)
                     {
-                        TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                        BowlerRuns = TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                        //BowlerRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                         TotalScore = TotalScore + TotalRuns;
                         Runs = TotalRuns.ToString() + " runs.";
                     }
@@ -325,6 +328,7 @@ namespace Cricket.View
                 {
                     Runs = i.ToString() + " runs.";
                     TotalScore = TotalScore + i;
+                    BowlerRuns = i;
                 }
             }
                 //Wide
@@ -334,7 +338,7 @@ namespace Cricket.View
                 {
                     if (cbxoverthrowruns.SelectedIndex != -1)
                     {
-                        TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                        BowlerRuns = TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                         TotalScore = TotalScore + TotalRuns;
                         Runs = TotalRuns.ToString() + " runs.";
                         extra = extra + i + 1;
@@ -350,6 +354,7 @@ namespace Cricket.View
                     Runs = (i+1).ToString() + " runs.";
                     TotalScore = TotalScore + i + 1;
                     extra = extra + i + 1;
+                    BowlerRuns = i + 1;
                 }
             }
 
@@ -358,7 +363,7 @@ namespace Cricket.View
             {
                 if (chbxOverThrow.IsChecked == true)
                 {
-                    TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                    BowlerRuns = TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                     TotalScore = TotalScore + TotalRuns;
                     Runs = TotalRuns.ToString() + " runs.";
                     extra = extra + 1;
@@ -368,6 +373,7 @@ namespace Cricket.View
                     Runs = (i + 1).ToString() + " runs.";
                     TotalScore = TotalScore + i + 1;
                     extra = extra + 1;
+                    BowlerRuns = i + 1;
                 }
             }
 
@@ -376,7 +382,7 @@ namespace Cricket.View
             {
                 if (chbxOverThrow.IsChecked == true)
                 {
-                    TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                    BowlerRuns = TotalRuns = i + 1 + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                     TotalScore = TotalScore + TotalRuns;
                     Runs = TotalRuns.ToString() + " runs.";
                     extra = extra + 1;
@@ -386,6 +392,7 @@ namespace Cricket.View
                     Runs = (i + 1).ToString() + " runs.";
                     TotalScore = TotalScore + i + 1;
                     extra = extra + 1;
+                    BowlerRuns = i + 1;
                 }
             }
 
@@ -394,10 +401,10 @@ namespace Cricket.View
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
-                temp_overs = temp_overs + 1;
+                //temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked == true)
                 {
-                    TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                    BowlerRuns = TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                     TotalScore = TotalScore + TotalRuns;
                     Runs = TotalRuns.ToString() + " runs.";
                     extra = extra + TotalRuns;
@@ -407,6 +414,7 @@ namespace Cricket.View
                     Runs = i.ToString() + " runs.";
                     TotalScore = TotalScore + i;
                     extra = extra + i;
+                    BowlerRuns = i + 1;
                 }
             }
                 //Byes
@@ -414,10 +422,10 @@ namespace Cricket.View
             {
                 Ball = Ball + 1;
                 bowlerballs = bowlerballs + 1;
-                temp_overs = temp_overs + 1;
+                //temp_overs = temp_overs + 1;
                 if (chbxOverThrow.IsChecked == true)
                 {
-                    TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
+                    BowlerRuns = TotalRuns = i + Convert.ToInt16(cbxoverthrowruns.SelectedItem.ToString());
                     TotalScore = TotalScore + TotalRuns;
                     Runs = TotalRuns.ToString() + " runs.";
                     extra = extra + TotalRuns;
@@ -427,11 +435,16 @@ namespace Cricket.View
                     Runs = i.ToString() + " runs.";
                     TotalScore = TotalScore + i;
                     extra = extra + i;
+                    BowlerRuns = i + 1;
                 }
             }
 
             lbltotalscore.Content = TotalScore;         //Total Score
             lblOvers.Content = Convert.ToInt16(Math.Truncate(Ball / 6)) + "." + (Ball % 6);     //Total Overs
+            lblExtras.Content = extra;
+            
+
+
             batsman1 = cbxbatsmen.Items[0].ToString();
             batsman2 = cbxbatsmen.Items[1].ToString();
             bowler = cbxbowler.Items[0].ToString();
@@ -658,7 +671,8 @@ namespace Cricket.View
                             {
                                 drbowler["Dots"] = dotssss[m];
                             }
-
+                            BRunnnn[m] += BowlerRuns;
+                            drbowler["Runs"] = BRunnnn[m];
                             //dr["Fours"] = Foursssss[m];
                             //dr["Sixes"] = Sixesssss[m];
                             count++;
@@ -674,6 +688,10 @@ namespace Cricket.View
                             drbowler["Bowler"] = teamB[count];
                             drbowler["Overs"] = bowlerover[m];
                             drbowler["Dots"] = dotssss[m];
+                            drbowler["Runs"] = BRunnnn[m];
+                            
+                            
+                            
                             //if (Runnnn[count] != null)
                             //{
                             //    dr["Runs"] = Runnnn[m];
@@ -687,15 +705,17 @@ namespace Cricket.View
                             dtbowler.AcceptChanges();
                         }
                     }
+                    lblO.Content = Convert.ToString(bowlerover[m]);
                 }
                 dgvbowl.DataContext = dtbowler;
+                
             }
 
             if ((Ball % 6) == 0)
             {
                 MessageBox.Show("Select Next Bowler");
                 cbxbowler_DropDownOpened();
-                temp_overs = 0;
+               // temp_overs = 0;
             }
             
         }
