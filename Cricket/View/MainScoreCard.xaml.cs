@@ -26,7 +26,8 @@ namespace Cricket.View
     public partial class MainScoreCard : UserControl
     {
         DataTable dtlItemDetails = new DataTable();
-        public List<string> players = new List<string>(15);
+        public List<string> bowlingplayers = new List<string>(15);
+        public List<string> battingplayers = new List<string>(15);
 
         ObservableCollection<string> teamA = new ObservableCollection<string>();    //Batting Team
         ObservableCollection<string> teamB = new ObservableCollection<string>();    //Bowling Team
@@ -176,8 +177,18 @@ namespace Cricket.View
                 foreach (var item in cbxbowler.Items)
                 {
                     string xyz = Convert.ToString(item);
-                    players.Insert(i, xyz);
+                    bowlingplayers.Insert(i, xyz);
                     i++;
+                }
+            }
+
+            for (int j = 0; j < cbxbatsmen.Items.Count; j++)
+            {
+                foreach (var item in cbxbatsmen.Items)
+                {
+                    string xyz = Convert.ToString(item);
+                    battingplayers.Insert(j, xyz);
+                    j++;
                 }
             }
 
@@ -254,48 +265,85 @@ namespace Cricket.View
             btnzero.ClearValue(Button.BackgroundProperty);
         }
 
+        public void btnWicket_Click(object sender, RoutedEventArgs e)
+        {
+            calc();
+            MessageBox.Show("Select Who Got Out");
+            cbxWhoOut.Items.Clear();
+            cbxWhoOut.Items.Add(batsman1);
+            cbxWhoOut.Items.Add(batsman2);
+            cbxWhoOut_DropDownOpened();
+            //cbxWhoOut_DropDownClosed();
+        }
+
+        private void cbxWhoOut_DropDownClosed()
+        {
+            //throw new NotImplementedException();
+            
+        }
+
+        private void cbxWhoOut_DropDownOpened()
+        {
+            //throw new NotImplementedException();
+            cbxWhoOut.IsDropDownOpen = true;
+            
+            
+        }
+
+        private void cbxbatsmen_DropDownOpened()
+        {
+//            throw new NotImplementedException();
+            cbxbatsmen.IsDropDownOpen = true;
+
+        }
+
+        public void calc()
+        {
+            if (btnzero.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(0);
+                swapbatsman(0);
+            }
+            else if (btnone.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(1);
+                swapbatsman(1);
+            }
+            else if (btntwo.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(2);
+                swapbatsman(2);
+            }
+            else if (btnthree.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(3);
+                swapbatsman(3);
+            }
+            else if (btnfour.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(4);
+                swapbatsman(4);
+            }
+            else if (btnsix.Background == Brushes.Orange)
+            {
+                CalculateTotalRuns(6);
+                swapbatsman(6);
+            }
+
+            cbxextras.SelectedIndex = 0;
+            btnzero.ClearValue(Button.BackgroundProperty);
+            btnone.ClearValue(Button.BackgroundProperty);
+            btntwo.ClearValue(Button.BackgroundProperty);
+            btnthree.ClearValue(Button.BackgroundProperty);
+            btnfour.ClearValue(Button.BackgroundProperty);
+            btnsix.ClearValue(Button.BackgroundProperty);
+
+            cbxoverthrowruns.SelectedIndex = -1;
+        }
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-           if(btnzero.Background == Brushes.Orange)
-           {
-               CalculateTotalRuns(0);
-               swapbatsman(0);
-           }
-           else if(btnone.Background==Brushes.Orange)
-           {
-               CalculateTotalRuns(1);
-               swapbatsman(1);
-           }
-           else if (btntwo.Background == Brushes.Orange)
-           {
-               CalculateTotalRuns(2);
-               swapbatsman(2);
-           }
-           else if (btnthree.Background == Brushes.Orange)
-           {
-               CalculateTotalRuns(3);
-               swapbatsman(3);
-           }
-           else if (btnfour.Background == Brushes.Orange)
-           {
-               CalculateTotalRuns(4);
-               swapbatsman(4);
-           }
-           else if (btnsix.Background == Brushes.Orange)
-           {
-               CalculateTotalRuns(6);
-               swapbatsman(6);
-           }
-
-           cbxextras.SelectedIndex = 0;
-           btnzero.ClearValue(Button.BackgroundProperty);
-           btnone.ClearValue(Button.BackgroundProperty);
-           btntwo.ClearValue(Button.BackgroundProperty);
-           btnthree.ClearValue(Button.BackgroundProperty);
-           btnfour.ClearValue(Button.BackgroundProperty);
-           btnsix.ClearValue(Button.BackgroundProperty);
-
-           cbxoverthrowruns.SelectedIndex = -1; 
+            calc();
+            
         }
 
         public void CalculateTotalRuns (int i)
@@ -705,10 +753,8 @@ namespace Cricket.View
                             dtbowler.AcceptChanges();
                         }
                     }
-                    lblO.Content = Convert.ToString(bowlerover[m]);
                 }
                 dgvbowl.DataContext = dtbowler;
-                
             }
 
             if ((Ball % 6) == 0)
@@ -785,18 +831,76 @@ namespace Cricket.View
             int a = cbxbowler.SelectedIndex;
             string abc = cbxbowler.SelectedItem.ToString();
 
-            players.Remove(abc);
-            players.Insert(0, abc);
+            bowlingplayers.Remove(abc);
+            bowlingplayers.Insert(0, abc);
             cbxbowler.Items.Clear();
-            for (int i = 0; i < players.Count; i++)
+            for (int i = 0; i < bowlingplayers.Count; i++)
             {
-                foreach (var item in players)
+                foreach (var item in bowlingplayers)
                 {
                     cbxbowler.Items.Add(item);
                     i++;
                 }
             }
             cbxbowler.SelectedIndex = 0;
+        }
+
+        private void cbxbatsmen_DropDownOpened(object sender, EventArgs e)
+        {
+            cbxbatsmen.IsDropDownOpen = true;
+        }
+
+        private void cbxbatsmen_DropDownClosed(object sender, EventArgs e)
+        {
+            int a = cbxbatsmen.SelectedIndex;
+            string abc = cbxbatsmen.SelectedItem.ToString();
+           
+
+            battingplayers.Remove(abc);
+            if(cbxWhoOut.SelectedIndex ==1)
+            {
+                battingplayers.Insert(1, abc);
+            }
+            else
+            {
+                battingplayers.Insert(0, abc);
+            }
+
+            cbxbatsmen.Items.Clear();
+            for (int i = 0; i < battingplayers.Count; i++)
+            {
+                foreach (var item in battingplayers)
+                {
+                    cbxbatsmen.Items.Add(item);
+                    i++;
+                }
+            }
+            cbxbatsmen.SelectedIndex = 0;
+        }
+    
+
+        private void cbxWhoOut_DropDownOpened(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxWhoOut_DropDownClosed(object sender, EventArgs e)
+        {
+            string whoout = cbxWhoOut.SelectedItem.ToString();
+            cbxbatsmen.Items.Remove(whoout);
+            battingplayers.Remove(whoout);
+            if(cbxWhoOut.SelectedIndex==0)
+            {
+                Runs1 = 0;
+                Balls1 = 0;
+            }
+            else if(cbxWhoOut.SelectedIndex==1)
+            {
+                Runs2 = 0;
+                Balls2 = 0;
+            }
+            MessageBox.Show("Select Next Batsman");
+            cbxbatsmen_DropDownOpened();
         }
     }
 }

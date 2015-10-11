@@ -40,9 +40,10 @@
         <GroupBox Header="Current" HorizontalAlignment="Left" Margin="730,0,0,0" VerticalAlignment="Top" Height="65" Width="575">
             <Grid>
                 <Label Content="Batsman:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <ComboBox Name="cbxbatsmen" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Bowler:" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.125"/>
-                <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened" DropDownClosed="cbxbowler_DropDownClosed"/>
+                <ComboBox Name="cbxbatsmen" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbatsmen_DropDownOpened" DropDownClosed="cbxbatsmen_DropDownClosed"/>
+                <ComboBox Name="cbxbowler" HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxbowler_DropDownOpened" DropDownClosed="cbxbowler_DropDownClosed"/>
+                <Label Content="Bowler:" HorizontalAlignment="Left" Margin="366,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.125"/>
+
 
             </Grid>
         </GroupBox>
@@ -76,12 +77,12 @@
 
         <GroupBox Header="Event" HorizontalAlignment="Left" Margin="730,185,0,0" VerticalAlignment="Top" Height="113" Width="575"/>
         <Grid>
-            <Button Content="Wicket" HorizontalAlignment="Left" Margin="768,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
-            <Button Content="Retired" HorizontalAlignment="Left" Margin="897.665,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
+            <Button Name="btnWicket" Content="Wicket" HorizontalAlignment="Left" Margin="768,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627" Click="btnWicket_Click"/>
+            <Button Name="btnRetired" Content="Retired" HorizontalAlignment="Left" Margin="897.665,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
             <Button Content="Pause" HorizontalAlignment="Left" Margin="1166.999,204.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
             <Button Content="Reset Bowler" HorizontalAlignment="Left" Margin="897.665,250.666,0,0" VerticalAlignment="Top" Width="119" Height="32.627"/>
             <Button Content="Change Bowler" HorizontalAlignment="Left" Margin="1029.332,250.666,0,0" VerticalAlignment="Top" Width="125.667" Height="32.627"/>
-            <Button Content="End Innings" HorizontalAlignment="Left" Margin="1029.332,204.666,0,0" VerticalAlignment="Top" Width="125.667" Height="32.627"/>
+            <Button Name="btnEndOfInngs" Content="End Innings" HorizontalAlignment="Left" Margin="1029.332,204.666,0,0" VerticalAlignment="Top" Width="125.667" Height="32.627"/>
             <Label Content="Require" HorizontalAlignment="Left" Margin="744.666,325.333,0,0" VerticalAlignment="Top" Width="79.326" FontSize="18.667"/>
             <Label Content="AAA" HorizontalAlignment="Left" Margin="828.992,322.665,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" FontSize="24"/>
             <Label Content="Overs/Balls(D/L Method)" HorizontalAlignment="Left" Margin="1041.332,325.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.209" Width="250.18" FontSize="18.667"/>
@@ -126,6 +127,7 @@
 
                 </Grid>
             </GroupBox>
+            <ComboBox x:Name="cbxWhoOut" HorizontalAlignment="Left" Margin="960,26,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cbxWhoOut_DropDownOpened" DropDownClosed="cbxWhoOut_DropDownClosed"/>
 
         </Grid>
     </Grid>
