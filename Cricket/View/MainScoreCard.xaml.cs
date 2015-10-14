@@ -38,10 +38,12 @@ namespace Cricket.View
         int extra = 0;
 
         //batsman
+        public List<string> Bowlertookwicket = new List<string>(15);
         public List<int> Runnnn= new List<int>(15);
         public List<int> Ballsssss = new List<int>(15);
         public List<int> Foursssss = new List<int>(15);
         public List<int> Sixesssss = new List<int>(15);
+
 
         //bowler
         public List<double> bowlerover = new List<double>(15);
@@ -50,7 +52,6 @@ namespace Cricket.View
         public List<int> BWickets = new List<int>(15);
         public List<int> Widessss = new List<int>(15);
         public List<int> Noballssssss = new List<int>(15);
-
         public List<int> bowlerovernumber = new List<int>(15);
 
 
@@ -62,6 +63,9 @@ namespace Cricket.View
         int Fours1 = 0;
         int Sixes1 = 0;
 
+        string BowlerName1;
+        string BowlerName2;
+
         //batsman2
         string batsman2;
         int Runs2 = 0;
@@ -72,8 +76,8 @@ namespace Cricket.View
         //bowler
         string bowler;
         double bowlerballs = 0;
-        
         bool blnSwapBatsman;
+        int bowlerwicket;
 
         //temporary bowler overs
         double bbb;
@@ -88,6 +92,7 @@ namespace Cricket.View
 
             for (int s = 0; s <= 14; s++)
             {
+                Bowlertookwicket.Insert(s, "a");
                 Runnnn.Insert(s, 0);
                 Ballsssss.Insert(s, 0);
                 Foursssss.Insert(s, 0);
@@ -267,12 +272,16 @@ namespace Cricket.View
 
         public void btnWicket_Click(object sender, RoutedEventArgs e)
         {
-            calc();
+            bowlerwicket = 0;
+            bowlerwicket++;
+
+            //calc();
             MessageBox.Show("Select Who Got Out");
             cbxWhoOut.Items.Clear();
             cbxWhoOut.Items.Add(batsman1);
             cbxWhoOut.Items.Add(batsman2);
             cbxWhoOut_DropDownOpened();
+            
             //cbxWhoOut_DropDownClosed();
         }
 
@@ -549,6 +558,12 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
+                            //if (BowlerName1 != null)
+                            //{
+                            //    Bowlertookwicket[m] = BowlerName1;
+                            //    BowlerName1 = null;
+                            //}
+                            //dr["Bowler"] = Bowlertookwicket[m];
                             dr["Runs"] = Runnnn[m];
                             dr["Balls"] = Ballsssss[m];
                             dr["Fours"] = Foursssss[m];
@@ -630,6 +645,14 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
+
+                            //if (BowlerName2 != null)
+                            //{
+                            //    Bowlertookwicket[m] = BowlerName2;
+                            //    BowlerName2 = null;
+                            //}
+
+                            //dr["Bowler"] = Bowlertookwicket[m];
                             dr["Runs"] = Runnnn[m];
                             dr["Balls"] = Ballsssss[m];
                             dr["Fours"] = Foursssss[m];
@@ -646,6 +669,7 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
+                            dr["Bowler"] = BowlerName2;
                             if (Runnnn[count] != null)
                             {
                                 dr["Runs"] = Runnnn[m];
@@ -721,6 +745,13 @@ namespace Cricket.View
                             }
                             BRunnnn[m] += BowlerRuns;
                             drbowler["Runs"] = BRunnnn[m];
+                            if(bowlerwicket!=0)
+                            {
+                                BWickets[m] += bowlerwicket;
+                            }
+
+                            drbowler["Wickets"] = BWickets[m];
+                            bowlerwicket = 0;
                             //dr["Fours"] = Foursssss[m];
                             //dr["Sixes"] = Sixesssss[m];
                             count++;
@@ -737,9 +768,10 @@ namespace Cricket.View
                             drbowler["Overs"] = bowlerover[m];
                             drbowler["Dots"] = dotssss[m];
                             drbowler["Runs"] = BRunnnn[m];
-                            
-                            
-                            
+                            drbowler["Wickets"] = BWickets[m];
+
+
+
                             //if (Runnnn[count] != null)
                             //{
                             //    dr["Runs"] = Runnnn[m];
@@ -876,6 +908,7 @@ namespace Cricket.View
                 }
             }
             cbxbatsmen.SelectedIndex = 0;
+            calc();
         }
     
 
@@ -893,12 +926,18 @@ namespace Cricket.View
             {
                 Runs1 = 0;
                 Balls1 = 0;
+                //BowlerName1 = null;
+                //BowlerName1 = cbxbowler.SelectedValue.ToString();
+
             }
             else if(cbxWhoOut.SelectedIndex==1)
             {
                 Runs2 = 0;
                 Balls2 = 0;
+                //BowlerName2 = null;
+                //BowlerName2 = cbxbowler.SelectedValue.ToString();
             }
+            //calc();
             MessageBox.Show("Select Next Batsman");
             cbxbatsmen_DropDownOpened();
         }
