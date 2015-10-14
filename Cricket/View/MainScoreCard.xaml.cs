@@ -63,8 +63,9 @@ namespace Cricket.View
         int Fours1 = 0;
         int Sixes1 = 0;
 
-        string BowlerName1;
-        string BowlerName2;
+        string BowlerNameWhoTookWicket;
+        string BatsmanNameWhoGotOut;
+        //string BowlerName2;
 
         //batsman2
         string batsman2;
@@ -82,7 +83,7 @@ namespace Cricket.View
         //temporary bowler overs
         double bbb;
        
-
+       
 
 
         public MainScoreCard()
@@ -92,7 +93,7 @@ namespace Cricket.View
 
             for (int s = 0; s <= 14; s++)
             {
-                Bowlertookwicket.Insert(s, "a");
+                Bowlertookwicket.Insert(s, null);
                 Runnnn.Insert(s, 0);
                 Ballsssss.Insert(s, 0);
                 Foursssss.Insert(s, 0);
@@ -275,7 +276,7 @@ namespace Cricket.View
             bowlerwicket = 0;
             bowlerwicket++;
 
-            //calc();
+            calc();
             MessageBox.Show("Select Who Got Out");
             cbxWhoOut.Items.Clear();
             cbxWhoOut.Items.Add(batsman1);
@@ -558,12 +559,12 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
-                            //if (BowlerName1 != null)
-                            //{
-                            //    Bowlertookwicket[m] = BowlerName1;
-                            //    BowlerName1 = null;
-                            //}
-                            //dr["Bowler"] = Bowlertookwicket[m];
+
+                            if (teamA[count] == BatsmanNameWhoGotOut)
+                            {
+                                Bowlertookwicket[m] = BowlerNameWhoTookWicket;
+                            }
+                            dr["Bowler"] = Bowlertookwicket[m];
                             dr["Runs"] = Runnnn[m];
                             dr["Balls"] = Ballsssss[m];
                             dr["Fours"] = Foursssss[m];
@@ -579,6 +580,13 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
+
+                            if (teamA[count] == BatsmanNameWhoGotOut)
+                            {
+                                Bowlertookwicket[m] = BowlerNameWhoTookWicket;
+                            }
+                            dr["Bowler"] = Bowlertookwicket[m];
+
                             if (Runnnn[count] != null)
                             {
                                 dr["Runs"] = Runnnn[m];
@@ -646,13 +654,12 @@ namespace Cricket.View
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
 
-                            //if (BowlerName2 != null)
-                            //{
-                            //    Bowlertookwicket[m] = BowlerName2;
-                            //    BowlerName2 = null;
-                            //}
+                            if (teamA[count] == BatsmanNameWhoGotOut)
+                            {
+                                Bowlertookwicket[m] = BowlerNameWhoTookWicket;
+                            }
+                            dr["Bowler"] = Bowlertookwicket[m];
 
-                            //dr["Bowler"] = Bowlertookwicket[m];
                             dr["Runs"] = Runnnn[m];
                             dr["Balls"] = Ballsssss[m];
                             dr["Fours"] = Foursssss[m];
@@ -669,7 +676,13 @@ namespace Cricket.View
                             dr.BeginEdit();
                             dr["SLNO"] = count+1;
                             dr["Batsman"] = teamA[count];
-                            dr["Bowler"] = BowlerName2;
+
+                            if (teamA[count] == BatsmanNameWhoGotOut)
+                            {
+                                Bowlertookwicket[m] = BowlerNameWhoTookWicket;
+                            }
+                            dr["Bowler"] = Bowlertookwicket[m];
+
                             if (Runnnn[count] != null)
                             {
                                 dr["Runs"] = Runnnn[m];
@@ -937,6 +950,9 @@ namespace Cricket.View
                 //BowlerName2 = null;
                 //BowlerName2 = cbxbowler.SelectedValue.ToString();
             }
+            BowlerNameWhoTookWicket = cbxbowler.SelectedValue.ToString();
+            BatsmanNameWhoGotOut = cbxWhoOut.SelectedValue.ToString();
+
             //calc();
             MessageBox.Show("Select Next Batsman");
             cbxbatsmen_DropDownOpened();
